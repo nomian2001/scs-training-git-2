@@ -1,33 +1,40 @@
-# Setup
-Please run the below commands:
+# The progress
+I run the below commands after clone the repository's assignment:
+
+### I. Fetching to get all branch of original repository:
 ```
-git clone git@github.com:noothaithinh/scs.baitap.2.git
-cd scs.baitap.2.git
-sh ./install.sh
+git fetch git@github.com:noothaithinh/scs.baitap.2.git
 ```
 
-# Bai tap:
-
-### 1. Thêm file .gitignore
-Thêm một file **.gitignore** sao cho không được commit file **.env** và folder **tmp**
-
-### 2. Tạo pull request
-Run command:
+### II. Adding remote repository to push my own repository
 ```
-git fetch origin
-```
-Từ 2 branch **< master >** và **< develop >** hãy tạo branch **< release >** và tạo pull request để merge vào **< master >**, để được branch **< master >**:
-```
-init
-commit 1
-commit 2
-commit 3
-commit 4
-commit 5
-commit 6
-commit 7
-commit 8
-commit 9
+git remote add tung git@github.com:nomian2001/scs-training-git-2.git
+git branch -M master
+git push -u tung master
+git checkout origin/develop
+git push tung
 ```
 
-### 3. Tạo một commit gửi lại tất cả các commands và chú thích cách làm bài ( nếu cần ) bằng markdown
+### III. Creating gitignore
+```
+git checkout tung/master
+```
+In this step, I created the file named ".gitignore", then adding the content such as: 
+```
+.env
+tmp\
+```
+Then, I push it into github
+```
+git add .
+git commit -m "update gitignore"
+git push tung/master
+```
+### IV. Creating branch release
+In this step I created a new branch from branch master.
+```
+git checkout -b release
+git push tung
+``` 
+Then I pull request from branch **develop** to branch **release**. In this step, I fix the conflict by removing the content of file "conflict_3_4.txt" on the branch **release**. Finally, I pull request from **release** to **master**.
+
